@@ -1,5 +1,5 @@
 const express = require('express');
-const { createAdmin, Login, findAllVehicles, findAllUsers, createDestination, findAllDestinations, createTrip, findAllTrips, getVehicleById } = require('../controllers/AdminController');
+const { createAdmin, Login, findAllVehicles, findAllUsers, createDestination, findAllDestinations, createTrip, findAllTrips, getVehicleById, getAdminDataByEmail } = require('../controllers/AdminController');
 const { createVehicle } = require('../controllers/VehicleController');
 
 
@@ -36,6 +36,10 @@ router.get('/getvehicle/:id',getVehicleById);
 
 //find all the users
 router.get('/allusers',findAllUsers);
+
+
+//get admin data by email
+router.get('/admin/:email',getAdminDataByEmail);
 
 //find user  by email
 // router.get('/user/:email',getAllUsersByEmail);

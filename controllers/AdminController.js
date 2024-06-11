@@ -198,6 +198,24 @@ const getVehicleById = async (req, res) => {
   }
 };
 
+
+//get admin data
+const getAdminDataByEmail = async (req, res) => {
+  try {
+      const {email} = req.params;
+      const admin = await Admin.find({email});
+      if(!admin){
+          res.status(404).json({message:'you have not added any admin with that email'});
+      }
+      res.status(200).json(admin);
+
+  } catch (error) {
+      console.log(error)
+      res.status(500).json({ error: "data not located" })
+
+  }
+}
+
 module.exports = {
   createAdmin,
   findAllUsers,
@@ -208,5 +226,6 @@ module.exports = {
   findAllDestinations,
   createTrip,
   findAllTrips,
-  getVehicleById
+  getVehicleById,
+  getAdminDataByEmail
 };
