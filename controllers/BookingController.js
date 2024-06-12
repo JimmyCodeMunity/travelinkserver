@@ -73,7 +73,7 @@ const getBookings = async (req, res) => {
 
 // Route to get all booked seats for a specific vehicle
 const getAllBookedSeats = async (req, res) => {
-  const { vehicleId } = req.body;
+  const { vehicleId } = req.params;
 
   if (!vehicleId) {
     return res.status(400).json({ message: 'Vehicle ID is required' });
