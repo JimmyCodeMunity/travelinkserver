@@ -31,7 +31,7 @@ router.post('/bookseat',handleBooking);
 
 
 //fetch all the booked seats
-router.post('/bookedseats',getAllBookedSeats);
+router.get('/bookedseats/:vehicleId',getAllBookedSeats);
 
 
 //get bookings
