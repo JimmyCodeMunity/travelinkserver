@@ -8,7 +8,7 @@ const Trip = require("../models/TripModel");
 
 const createTrip = async (req, res) => {
   try {
-    const { vehicleid, departure, arrival, status, from, to,price } = req.body;
+    const { vehicleid, departure, arrival, status, from, to,price,tripdate } = req.body;
 
     const existingTrip = await Trip.findOne({ vehicleid });
 
@@ -23,7 +23,8 @@ const createTrip = async (req, res) => {
         status,
         from,
         to,
-        price
+        price,
+        tripdate
       });
       res.status(200).json({ message: "User created Successfully", trip });
     }
