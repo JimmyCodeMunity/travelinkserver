@@ -19,8 +19,9 @@ const tripSchema = new mongoose.Schema({
     arrivalTime:{
         type:String
     },
-    tripDate:{
+    tripdate:{
         type:String
+        
     },
     
     

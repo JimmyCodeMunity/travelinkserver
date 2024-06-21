@@ -9,6 +9,7 @@ const Vehicle = require("../models/VehicleModel");
 const createVehicle = async (req, res) => {
   try {
     const { name, plate, seats, status} = req.body;
+    
 
     const existingVehicle = await Vehicle.findOne({ plate });
 
