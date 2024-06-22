@@ -20,7 +20,7 @@ const tripSchema = new mongoose.Schema({
         type:String
     },
     tripdate:{
-        type:String
+        type:Date
         
     },
     
