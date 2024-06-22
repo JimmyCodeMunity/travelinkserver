@@ -5,7 +5,7 @@ const Booking = require('../models/BookingModel');
 
 // Route to book seats
 const handleBooking = async (req, res) => {
-  let { userId, seats, vehicleId } = req.body;
+  let { userId, seats, vehicleId,vehiclename,vehiclereg,price,tripdate,leavesAt,from,to } = req.body;
 
   // Log the received data for debugging
   console.log('Received booking request:', { userId, seats, vehicleId });
@@ -50,7 +50,7 @@ const handleBooking = async (req, res) => {
     }
 
     // Create a new booking
-    const newBooking = new Booking({ userId, seats, vehicleId });
+    const newBooking = new Booking({ userId, seats, vehicleId,vehiclename,vehiclereg,price,leavesAt,from,to,tripdate });
     await newBooking.save();
 
     res.status(201).json({ message: 'Seats booked successfully', booking: newBooking });

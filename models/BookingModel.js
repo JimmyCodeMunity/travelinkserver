@@ -22,6 +22,27 @@ const BookingSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  vehiclename:{
+    type:String
+  },
+  vehiclereg:{
+    type:String
+  },
+  price:{
+    type:Number
+  },
+  leavesAt:{
+    type:String
+  },
+  from:{
+    type:String
+  },
+  to:{
+    type:String
+  },
+  tripdate:{
+    type:String
+  }
 });
 const Booking = mongoose.model("bookings", BookingSchema);
 
