@@ -1,6 +1,6 @@
 const express = require('express');
 const { createUser, findAllUsers, getAllUsersByEmail, Login, AssignSeats, getAllUsersById } = require('../controllers/UserController');
-const { handleBooking, getAllBookedSeats } = require('../controllers/BookingController');
+const { getAllBookedSeats } = require('../controllers/BookingController');
 
 
 
@@ -27,7 +27,7 @@ router.put('/assign-seats/:email',AssignSeats);
 
 
 //handle bookings
-router.post('/bookseat',handleBooking);
+// router.post('/bookseat',handleBooking);
 
 
 //fetch all the booked seats

@@ -28,9 +28,7 @@ const BookingSchema = new Schema({
   vehiclereg:{
     type:String
   },
-  price:{
-    type:Number
-  },
+
   leavesAt:{
     type:String
   },

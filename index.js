@@ -9,6 +9,7 @@ const path = require('path')
 //app routes
 const userRoute = require('./routes/UserRoute');
 const adminRoute = require('./routes/AdminRoute');
+const paymentRoute = require('./routes/PaymentRoute');
 
 
 const app = express();
@@ -53,5 +54,6 @@ mongoose.connect(dbconnection, { useNewUrlParser: true, useUnifiedTopology: true
 //set up main app routes
 //user access routes
 app.use('/api/v1/user',userRoute);
+app.use('/api/v1/payment',paymentRoute);
 app.use('/api/v1/admin',adminRoute);
 
