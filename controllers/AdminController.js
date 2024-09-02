@@ -96,6 +96,32 @@ const Login = async (req, res) => {
     res.status(500).json({ error: "Failed to login" });
   }
 };
+const DriverLogin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const driver = await Driver.findOne({ email });
+
+    if (!driver) {
+      res.status(404).json({ error: "driver not found" });
+      return;
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, driver.password);
+
+    if (!isPasswordValid) {
+      res.status(401).json({ error: "Invalid password" });
+      return;
+    }
+    const token = jwt.sign({ _id: driver._id }, process.env.JWT_SECRET, {
+      expiresIn: 7,
+    });
+    res.status(200).json({ driver: driver, token: token });
+    // console.log({admin,token})
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Failed to login" });
+  }
+};
 
 //create destination point
 const createDestination = async (req, res) => {
@@ -498,5 +524,6 @@ module.exports = {
   updateDestinationById,
   deleteDestinationById,
   getDestinationById,
-  getDriverById
+  getDriverById,
+  DriverLogin
 };

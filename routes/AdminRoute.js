@@ -1,5 +1,5 @@
 const express = require('express');
-const { createAdmin, Login, findAllVehicles, findAllUsers, createDestination, findAllDestinations, findAllTrips, getVehicleById, getAdminDataByEmail, createDriver, getAllDrivers, deleteUserById, deleteDriverById, deleteVehicleById, deleteTripById, updateUserById, updateTripById, updateVehicleById, updateDriverById, deleteDestinationById, updateDestinationById, getDestinationById, getDriverById } = require('../controllers/AdminController');
+const { createAdmin, Login, findAllVehicles, findAllUsers, createDestination, findAllDestinations, findAllTrips, getVehicleById, getAdminDataByEmail, createDriver, getAllDrivers, deleteUserById, deleteDriverById, deleteVehicleById, deleteTripById, updateUserById, updateTripById, updateVehicleById, updateDriverById, deleteDestinationById, updateDestinationById, getDestinationById, getDriverById, DriverLogin } = require('../controllers/AdminController');
 const { createVehicle } = require('../controllers/VehicleController');
 const { getTripById,createTrip } = require('../controllers/TripController');
 
@@ -66,6 +66,7 @@ router.get('/tripdata/:id',getTripById);
 
 ///user login
 router.post('/login',Login);
+router.post('/driverlogin',DriverLogin);
 
 
 //deletions
